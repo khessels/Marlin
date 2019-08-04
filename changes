@@ -1,0 +1,5 @@
+Changes for the FT-5
+
+Enabled options:
+BLTOUCH, LASER, DUAL-Y, TMC2208
+BLTOUCH uses servo as pwm, Z-MAX-ENDSTOP for laser enable (needs 10K pullup)

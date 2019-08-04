@@ -32,7 +32,7 @@
 
 //
 // Servos
-//
+// #undef SERVO0_PIN
 #define SERVO0_PIN         P2_00
 
 //
@@ -90,11 +90,11 @@
   #define E0_CS_PIN        P1_08
 #endif
 
-#define E1_STEP_PIN        P0_01
-#define E1_DIR_PIN         P0_00
-#define E1_ENABLE_PIN      P0_10
-#ifndef E1_CS_PIN
-  #define E1_CS_PIN        P1_01
+#define Y2_STEP_PIN        P0_01
+#define Y2_DIR_PIN         P0_00
+#define Y2_ENABLE_PIN      P0_10
+#ifndef Y2_CS_PIN
+  #define Y2_CS_PIN        P1_01
 #endif
 
 //
@@ -119,13 +119,13 @@
    * Hardware serial communication ports.
    * If undefined software serial is used according to the pins below
    */
-  //#define X_HARDWARE_SERIAL  Serial
+  #define X_HARDWARE_SERIAL  Serial1
   //#define X2_HARDWARE_SERIAL Serial1
-  //#define Y_HARDWARE_SERIAL  Serial1
-  //#define Y2_HARDWARE_SERIAL Serial1
-  //#define Z_HARDWARE_SERIAL  Serial1
+  #define Y_HARDWARE_SERIAL  Serial1
+  #define Y2_HARDWARE_SERIAL Serial1
+  #define Z_HARDWARE_SERIAL  Serial1
   //#define Z2_HARDWARE_SERIAL Serial1
-  //#define E0_HARDWARE_SERIAL Serial1
+  #define E0_HARDWARE_SERIAL Serial1
   //#define E1_HARDWARE_SERIAL Serial1
   //#define E2_HARDWARE_SERIAL Serial1
   //#define E3_HARDWARE_SERIAL Serial1
@@ -146,8 +146,8 @@
   #define E0_SERIAL_TX_PIN P1_09
   #define E0_SERIAL_RX_PIN P1_08
 
-  #define E1_SERIAL_TX_PIN P1_04
-  #define E1_SERIAL_RX_PIN P1_01
+  #define Y2_SERIAL_TX_PIN P1_04
+  #define Y2_SERIAL_RX_PIN P1_01
 
   #define Z2_SERIAL_TX_PIN P1_04
   #define Z2_SERIAL_RX_PIN P1_01
@@ -288,4 +288,13 @@
  *   P1_31  (49) (NOT 5V tolerant)
  *   P0_27  (57) (Open collector)
  *   P0_28  (58) (Open collector)
- */
+ */ 
+
+// laser pins
+#undef Z_MAX_PIN
+#undef Y_MAX_PIN
+// #undef SERVO0_PIN
+#define SPINDLE_LASER_PWM_PIN     P1_28   // MUST BE HARDWARE PWM
+#define SPINDLE_LASER_ENA_PIN     P1_26   // Pin should have a pullup!
+//#define SPINDLE_DIR_PIN          19
+
